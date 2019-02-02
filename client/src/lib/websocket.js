@@ -11,8 +11,15 @@ export class WebsocketConnection {
         })
     }
 
+
     sendMessage(text){
         console.log(`Sending message: ${text}`);
         this.socket.emit('new_message', {text})
+    }
+
+    getScoket(socket){
+        console.log(`Sending socket: ${socket}`);
+        this.socket = socket;
+        this.socket.emit('new_socket', {socket})
     }
 }
