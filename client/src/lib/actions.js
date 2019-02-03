@@ -1,17 +1,17 @@
-import { wsConn } from "./store";
+//import { wsConn } from "./store";
 
 
 
-export const addClientMessage = (text) => {
-    wsConn.sendMessage(text);
-    return {
-        type:"ADD_MESSAGE",
-        message:{
-            from: "me",
-            text
-        }
-    }
-}
+// export const addClientMessage = (text) => {
+//     wsConn.sendMessage(text);
+//     return {
+//         type:"ADD_MESSAGE",
+//         message:{
+//             from: "me",
+//             text
+//         }
+//     }
+// }
 
 export const addServerMessage = (text) => {
     return {
@@ -23,18 +23,25 @@ export const addServerMessage = (text) => {
     }
 }
 
-export const addSocketToState = (socket) => {
-    wsConn.getScoket(socket);
-    return {
-        type:"ADD_SOCKET",
-        socket: socket
-    }
-}
+// export const addSocketToState = (socket) => {
+//     wsConn.getScoket(socket);
+//     return {
+//         type:"ADD_SOCKET",
+//         socket: socket
+//     }
+// }
 
 export const getUSer = (user) => {
     return {
         type:"ADD_USER",
         user: user
+    }
+}
+
+export const connectSocket = (socket) => {
+    return {
+        type:"ADD_SOCKET",
+        socket: socket
     }
 }
 

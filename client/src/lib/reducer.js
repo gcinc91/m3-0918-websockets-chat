@@ -1,7 +1,7 @@
 
 const initState = {
     messages:[],
-    socket: 'klk',
+    socket: '',
     user:null
 }
 

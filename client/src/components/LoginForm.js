@@ -1,4 +1,5 @@
 import React from "react";
+import {VERIFY_USER} from '../lib/Events'
 
 
 export default class LoginForm extends React.Component {
@@ -17,9 +18,7 @@ export default class LoginForm extends React.Component {
     const {socket} = this.props;
     console.log('esto es socket '+ socket)
     const {nickname} = this.state;
-    socket.emit('Usuario verificado', nickname, this.setUser)
-
-
+    socket.emit(VERIFY_USER, nickname, this.setUser)
   }
 
   handleChange(e){
@@ -37,15 +36,16 @@ export default class LoginForm extends React.Component {
   }
 
   setError(error){
-    this.setState({error:'Error en el nombre de usuario'})
+    this.setState({error})
     
   }
 
 
 
   render() {
+    
 
-    const {nickname} = this.state;
+    const {nickname, error} = this.state;
     return (
       <div>
         <form onSubmit={(e) => this.handleSubmit(e)}>
@@ -60,6 +60,8 @@ export default class LoginForm extends React.Component {
           onChange={(e) => this.handleChange(e)}
           placeholder='My cool username!'
           />
+
+          <div>{error ? error:null}</div>
 
         </form>
       

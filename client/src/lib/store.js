@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
 import { reducer } from './reducer';
-import { WebsocketConnection } from './websocket';
+//import { WebsocketConnection } from './websocket';
 
 
 const store = createStore(
@@ -10,6 +10,6 @@ const store = createStore(
 
 console.log("Store created");
 
-export const wsConn = new WebsocketConnection(store);
+//export const wsConn = new WebsocketConnection(store);
 
 export {store};
